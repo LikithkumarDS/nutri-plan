@@ -41,13 +41,13 @@ def run():
         print(f"Carbs:           {plan.carbs_g} g")
         print(f"Fats:            {plan.fats_g} g")
 
-    except ValueError:
-        print("\nInput Error: Please enter valid numbers for Age, Weight, and Height.")
     except ValidationError as e:
         print("\nValidation Error:")
         for err in e.errors():
             field = err["loc"][0]
             print(f" - {field}: {err['msg']}")
+    except ValueError:
+        print("\nInput Error: Please enter valid numbers for Age, Weight, and Height.")
 
 
 if __name__ == "__main__":
